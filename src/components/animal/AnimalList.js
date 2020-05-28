@@ -14,18 +14,23 @@ const AnimalList = () => {
     });
   };
 
+  const deleteAnimal = id => {
+    AnimalManager.delete(id)
+      .then(() => AnimalManager.getAll().then(setAnimals));
+  };
+
   // When AnimalList mounts to the DOM for the first time, go get the animals
   useEffect(() => {
     getAnimals();
   }, []);
 
   return (
-      <>
-        <h1>Hello, React!</h1>
-        <div className="container-cards">
-          { animals.map(animal => <AnimalCard key={animal.id} animal={animal} />) }
-        </div>
-      </>
+    <>
+      <h1>Hello, React!</h1>
+      <div className="container-cards">
+        { animals.map(animal => <AnimalCard key={animal.id} animal={animal} deleteAnimal={deleteAnimal}/>) }
+      </div>
+    </>
   );
 };
 
