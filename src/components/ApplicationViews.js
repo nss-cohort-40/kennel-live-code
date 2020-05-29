@@ -2,6 +2,7 @@ import { Route } from "react-router-dom";
 import React from "react";
 import Home from "./home/Home";
 import AnimalList from "./animal/AnimalList";
+import AnimalDetail from "./animal/AnimalDetail";
 //only include these once they are built - previous practice exercise
 // import LocationCard from "./location/LocationCard";
 // import EmployeeCard from "./employee/EmployeeCard";
@@ -18,9 +19,16 @@ const ApplicationViews = () => {
         }}
       />
       <Route
+        exact
         path="/animals"
         render={props => {
           return <AnimalList />;
+        }}
+      />
+       <Route
+        path="/animals/:animalId(\d+)"
+        render={props => {
+          return <AnimalDetail animalId={parseInt(props.match.params.animalId)} {...props}/>;
         }}
       />
     </React.Fragment>
