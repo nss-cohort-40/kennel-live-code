@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import AnimalManager from '../../modules/AnimalManager';
+import EmployeeManager from '../../modules/EmployeeManager';
 import './AnimalDetail.css'
 
 const AnimalDetail = props => {
@@ -15,6 +16,10 @@ const AnimalDetail = props => {
           name: animal.name,
           breed: animal.breed
         });
+        return EmployeeManager.get(animal.employeeId)
+      })
+      .then(employee => {
+        setAnimal({caretaker: employee.name})
         setIsLoading(false);
       });
   }, [props.animalId]);
@@ -36,6 +41,7 @@ const AnimalDetail = props => {
         </picture>
         <h3>Name: <span style={{ color: 'darkslategrey' }}>{animal.name}</span></h3>
         <p>Breed: {animal.breed}</p>
+        <p>Caretaker: {animal.caretaker || "not assigned"} </p>
         <button type="button" disabled={isLoading} onClick={handleDelete}>
           Discharge
         </button>

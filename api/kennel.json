@@ -19,6 +19,18 @@
       "name": "Lucie",
       "breed": "Border Collie",
       "id": 4
+    },
+    {
+      "name": "Monkey",
+      "breed": "monkey dog",
+      "employeeId": "2",
+      "id": 5
+    },
+    {
+      "name": "Fluffington",
+      "breed": "fluffy",
+      "employeeId": "",
+      "id": 6
     }
   ],
   "employees": [

@@ -1,13 +1,18 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState }  from 'react';
 import AnimalManager from '../../modules/AnimalManager';
+import EmployeeManager from '../../modules/EmployeeManager';
 import './AnimalForm.css'
 
 const AnimalForm = (props) => {
-  const [animal, setAnimal] = useState({ name: "", breed: "" }); // add employees state
+  const [animal, setAnimal] = useState({ name: "", breed: "", employeeId: "" });
+  const [employees, setEmployees] = useState([])
   const [isLoading, setIsLoading] = useState(false);
 
-
-  // useEffect for getting and setting employees state
+  const getEmployees = () => {
+    return EmployeeManager.getAll().then(emps => {
+      setEmployees(emps)
+    });
+  }
 
   const handleFieldChange = evt => {
     const stateToChange = { ...animal };
@@ -19,7 +24,7 @@ const AnimalForm = (props) => {
   */
   const constructNewAnimal = (evt) => {
     evt.preventDefault();
-    if (animal.name === "" || animal.breed === "") {
+    if (animal.name === "" || animal.breed === "" || animal.employeeId === "") {
       window.alert("Please input an animal name and breed");
     } else {
       setIsLoading(true);
@@ -28,6 +33,10 @@ const AnimalForm = (props) => {
       .then(() => props.history.push("/animals"));
     }
   };
+
+  // useEffect for getting and setting employees state
+  // When some state changes, do some action
+  useEffect(() => {getEmployees()}, []);
 
   return (
     <>
@@ -51,7 +60,14 @@ const AnimalForm = (props) => {
             />
             <label htmlFor="breed">Breed</label>
             {/* dropdown element with onChange */}
-            {/* loop over employees and represent each one as an option for the dropdown */}
+            <select
+              value={animal.employeeId}
+              id="employeeId"
+              onChange={handleFieldChange}
+            >
+              <option value="">Please choose a caretaker</option>
+              {employees.map( emp => <option value={emp.id}>{emp.name}</option>)}
+            </select>
           </div>
           <div className="alignRight">
             <button
