@@ -14,6 +14,28 @@
       "id": 3,
       "name": "Esme",
       "breed": "Pitbull"
+    },
+    {
+      "name": "Lucie",
+      "breed": "Border Collie",
+      "id": 4
+    }
+  ],
+  "employees": [
+    {
+      "id": 1,
+      "name": "Bubba Sparkle",
+      "title": "Keeper of the Canines"
+    },
+    {
+      "id": 2,
+      "name": "Monica Von Farkensplort",
+      "title": "Protector of the Puppers"
+    },
+    {
+      "id": 3,
+      "name": "Spud Webb",
+      "breed": "Warden of the Woofers"
     }
   ]
 }

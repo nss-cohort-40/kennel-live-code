@@ -3,6 +3,7 @@ import React from "react";
 import Home from "./home/Home";
 import AnimalList from "./animal/AnimalList";
 import AnimalDetail from "./animal/AnimalDetail";
+import AnimalForm from "./animal/AnimalForm";
 //only include these once they are built - previous practice exercise
 // import LocationCard from "./location/LocationCard";
 // import EmployeeCard from "./employee/EmployeeCard";
@@ -22,15 +23,18 @@ const ApplicationViews = () => {
         exact
         path="/animals"
         render={props => {
-          return <AnimalList />;
+          return <AnimalList {...props} />;
         }}
       />
-       <Route
+      <Route
         path="/animals/:animalId(\d+)"
         render={props => {
           return <AnimalDetail animalId={parseInt(props.match.params.animalId)} {...props}/>;
         }}
       />
+      <Route path="/animals/new" render={(props) => {
+        return <AnimalForm {...props} />
+      }} />
     </React.Fragment>
   );
 };

@@ -4,7 +4,7 @@ import './AnimalDetail.css'
 
 const AnimalDetail = props => {
 
-  const [animal, setAnimal] = useState({ name: "", breed: "" });
+  const [animal, setAnimal] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
