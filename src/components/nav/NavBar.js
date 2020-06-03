@@ -23,7 +23,11 @@ const NavBar = () => {
             </Link>
           </li>
           <li>Locations</li>
-          <li>Employees</li>
+          <li>
+            <Link className="nav-link" to="/employees">
+              Employees
+            </Link>
+          </li>
           <li>Owners</li>
         </ul>
       </nav>

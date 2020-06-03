@@ -3,34 +3,38 @@
     {
       "id": 1,
       "name": "Doodles",
-      "breed": "Poodle"
+      "breed": "Poodle",
+      "employeeId": 1
     },
     {
       "id": 2,
-      "name": "Farley",
-      "breed": "Mutt"
+      "name": "Mister Farley",
+      "breed": "Mix",
+      "employeeId": 3
     },
     {
       "id": 3,
       "name": "Esme",
-      "breed": "Pitbull"
+      "breed": "Pitbull",
+      "employeeId": 1
     },
     {
       "name": "Lucie",
       "breed": "Border Collie",
-      "id": 4
+      "id": 4,
+      "employeeId": 2
     },
     {
       "name": "Monkey",
       "breed": "monkey dog",
-      "employeeId": "2",
+      "employeeId": 2,
       "id": 5
     },
     {
+      "id": 6,
       "name": "Fluffington",
       "breed": "fluffy",
-      "employeeId": "",
-      "id": 6
+      "employeeId": 2
     }
   ],
   "employees": [

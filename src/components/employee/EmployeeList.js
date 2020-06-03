@@ -1,8 +1,9 @@
 import React, { useEffect, useState }  from 'react';
 import EmployeeManager from "../../modules/EmployeeManager"
+import EmployeeCard from './EmployeeCard';
 // import AnimalCard from './AnimalCard';
 
-const EmployeeList = () => {
+const EmployeeList = (props) => {
 
   // Create an initial state of an empty array called animals, and a function for updating animals, called setAnimals
   const [employees, setEmployees] = useState([]);
@@ -25,9 +26,7 @@ const EmployeeList = () => {
 
   return (
     <>
-      <ul>
-        { employees.map(employee => <li>employee.name</li>) }
-      </ul>
+      { employees.map(employee => <EmployeeCard {...props} employee={employee}/>) }
     </>
   );
 };
