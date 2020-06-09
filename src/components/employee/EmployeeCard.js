@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const EmployeeCard = (props) => {
   return (
-    <div className="card">
+    <div className="employee-card">
       <div className="card-content">
         <picture>
           <img src={require("./person-icon.png")} alt="Employee" />

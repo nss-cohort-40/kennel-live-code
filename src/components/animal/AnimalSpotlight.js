@@ -12,7 +12,7 @@ const AnimalSpotlight = props => {
         breed: animal.breed
       });
     });
-  }, []); //needs props.animalId as a dependency or won't re-render on props change of animalId from Home component.
+  }, [props.animalId]); //needs props.animalId as a dependency or won't re-render on props change of animalId from Home component.
 
   return (
     <div className="animal-spotlight">

@@ -10,18 +10,18 @@ const AnimalDetail = props => {
 
   useEffect(() => {
     //get(id) from AnimalManager and hang on to the data; put it into state
+    let animalDetail = {}
     AnimalManager.get(props.animalId)
-      .then(animal => {
-        setAnimal({
-          name: animal.name,
-          breed: animal.breed
-        });
-        return EmployeeManager.get(animal.employeeId)
+    .then(animalData => {
+        animalDetail.name = animalData.name
+        animalDetail.breed = animalData.breed
+        return EmployeeManager.getWithAnimals(animalData.employeeId)
       })
       .then(employee => {
-        setAnimal({caretaker: employee.name})
+        animalDetail.caretaker = employee.name
+        setAnimal(animalDetail)
         setIsLoading(false);
-      });
+      })
   }, [props.animalId]);
 
   const handleDelete = () => {

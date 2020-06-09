@@ -41,17 +41,20 @@
     {
       "id": 1,
       "name": "Bubba Sparkle",
-      "title": "Keeper of the Canines"
+      "title": "Keeper of the Canines",
+      "email": "bubba@kennel.com"
     },
     {
       "id": 2,
       "name": "Monica Von Farkensplort",
-      "title": "Protector of the Puppers"
+      "title": "Protector of the Puppers",
+      "email": "monica@kennel.com"
     },
     {
       "id": 3,
       "name": "Spud Webb",
-      "breed": "Warden of the Woofers"
+      "title": "Warden of the Woofers",
+      "email": "spudroxx@kennel.com"
     }
   ]
 }

@@ -26,7 +26,7 @@ const ApplicationViews = (props) => {
           return <Home />;
         }}
       />
-     <Route exact path="/animals" render={props => {
+      <Route exact path="/animals" render={props => {
         if (hasUser) {
           return <AnimalList {...props} />
         } else {
@@ -37,6 +37,7 @@ const ApplicationViews = (props) => {
         exact
         path="/animals/:animalId(\d+)"
         render={props => {
+          console.log("animal id", props.match.params.animalId)
           return <AnimalDetail animalId={parseInt(props.match.params.animalId)} {...props}/>;
         }}
       />
