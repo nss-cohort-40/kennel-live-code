@@ -30,7 +30,10 @@ const AnimalForm = (props) => {
       setIsLoading(true);
       // Create the animal and redirect user to animal list
       AnimalManager.post(animal)
-      .then(() => props.history.push("/animals"));
+      .then((newAnimal) => {
+        console.log(newAnimal)
+        props.history.push("/animals")
+      });
     }
   };
 

@@ -1,0 +1,10 @@
+.employee-container {
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+  max-width: 60%;
+}
+
+.employee-card {
+  padding-left: 10%
+}

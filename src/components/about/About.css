@@ -1,0 +1,7 @@
+.about-us {
+  display: flex;
+}
+
+.about-us__column {
+  flex-basis: 45%;
+}

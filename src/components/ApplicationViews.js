@@ -1,5 +1,5 @@
 import { Route, Redirect } from "react-router-dom";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Home from "./home/Home";
 import AnimalList from "./animal/AnimalList";
 import AnimalDetail from "./animal/AnimalDetail";
@@ -8,6 +8,8 @@ import AnimalEditForm from "./animal/AnimalEditForm";
 import EmployeeWithAnimals from "./employee/EmployeeWithAnimals";
 import EmployeeList from "./employee/EmployeeList";
 import Login from "./auth/Login";
+import EmployeeManager from "../modules/EmployeeManager"
+import AboutUs from "./about/AboutUs";
 //only include these once they are built - previous practice exercise
 // import LocationCard from "./location/LocationCard";
 // import EmployeeCard from "./employee/EmployeeCard";
@@ -16,6 +18,19 @@ import Login from "./auth/Login";
 const ApplicationViews = (props) => {
   const hasUser = props.hasUser;
   const setUser = props.setUser;
+
+  const [employees, setEmployees] = useState([]);
+
+  const getEmployees = () => {
+    return EmployeeManager.getAll().then(employeesFromAPI => {
+      console.log(employeesFromAPI);
+      setEmployees(employeesFromAPI)
+    });
+  };
+
+  useEffect(() => {
+    getEmployees();
+  }, []);
 
   return (
     <React.Fragment>
@@ -59,10 +74,13 @@ const ApplicationViews = (props) => {
       }} />
       <Route exact path="/employees" render={props => {
         if (hasUser) {
-          return <EmployeeList {...props} />
+          return <EmployeeList {...props} employees={employees} />
         } else {
           return <Redirect to="/login" />
         }
+      }} />
+       <Route path="/about" render={props => {
+        return <AboutUs {...props} employees={employees}/>
       }} />
     </React.Fragment>
   );

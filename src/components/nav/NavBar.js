@@ -48,7 +48,12 @@ const NavBar = (props) => {
             : <li>
                 <Link className="nav-link" to="/login">Login</Link>
               </li>}
-          </ul>
+          <li>
+            <Link className="nav-link" to="/about">
+              About Us
+            </Link>
+          </li>
+        </ul>
       </nav>
     </header>
   );
